@@ -1,0 +1,604 @@
+/* ============================================================
+   KeyHouse - ร้านคีย์บอร์ดออนไลน์
+   
+   ============================================================ */
+
+/* ---------- 1. ตัวแปรสี (ธีมร้านคีย์บอร์ด) ---------- */
+:root {
+  --kh-bg: #0e0f16;
+  --kh-bg-soft: #161824;
+  --kh-card: #1b1e2c;
+  --kh-line: #2a2e42;
+  --kh-text: #e9eaf2;
+  --kh-muted: #9aa0b8;
+  --kh-primary: #7c5cff;
+  --kh-accent: #22d3ee;
+  --kh-warn: #ffb020;
+  --kh-radius: 16px;
+  --kh-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+}
+
+/* ---------- 2. พื้นฐานของหน้า ---------- */
+body {
+  background: var(--kh-bg);
+  color: var(--kh-text);
+  font-family: "Segoe UI", "Sarabun", "Noto Sans Thai", system-ui, sans-serif;
+  letter-spacing: .1px;
+  overflow-x: hidden;
+}
+
+main {
+  min-height: 60vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+.text-muted-kh {
+  color: var(--kh-muted) !important;
+}
+
+.section {
+  padding: 72px 0;
+}
+
+.section-sm {
+  padding: 44px 0;
+}
+
+.section-title {
+  font-weight: 800;
+  letter-spacing: -.5px;
+}
+
+.section-title span {
+  background: linear-gradient(100deg, var(--kh-primary), var(--kh-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.eyebrow {
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--kh-accent);
+}
+
+/* เอฟเฟกต์ตอนเปลี่ยนหน้าผ่านเมนู JavaScript */
+body.is-leaving {
+  opacity: 0;
+  transition: opacity .18s ease-in;
+}
+
+/* ---------- 3. Navbar ---------- */
+.kh-navbar {
+  background: rgba(14, 15, 22, .88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--kh-line);
+}
+
+.kh-navbar .navbar-brand {
+  font-weight: 800;
+  letter-spacing: .5px;
+  color: var(--kh-text);
+}
+
+.kh-navbar .navbar-brand img {
+  height: 32px;
+  margin-right: 8px;
+}
+
+.kh-navbar .nav-link {
+  color: var(--kh-muted);
+  font-weight: 600;
+  padding: .5rem .9rem !important;
+  border-radius: 10px;
+  transition: color .15s ease, background .15s ease;
+}
+
+.kh-navbar .nav-link:hover,
+.kh-navbar .nav-link:focus {
+  color: var(--kh-text);
+  background: rgba(124, 92, 255, .14);
+}
+
+.kh-navbar .nav-link.active {
+  color: #fff;
+  background: linear-gradient(100deg, var(--kh-primary), #5b6cff);
+}
+
+.kh-navbar .dropdown-menu {
+  background: var(--kh-card);
+  border: 1px solid var(--kh-line);
+  border-radius: 14px;
+  box-shadow: var(--kh-shadow);
+}
+
+.kh-navbar .dropdown-item {
+  color: var(--kh-muted);
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.kh-navbar .dropdown-item:hover {
+  background: rgba(124, 92, 255, .18);
+  color: #fff;
+}
+
+.navbar-toggler {
+  border-color: var(--kh-line);
+}
+
+/* ---------- 4. ปุ่ม ---------- */
+.btn-kh {
+  background: linear-gradient(100deg, var(--kh-primary), #5b6cff);
+  color: #fff;
+  border: 0;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: .65rem 1.5rem;
+  box-shadow: 0 8px 20px rgba(124, 92, 255, .32);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.btn-kh:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(124, 92, 255, .45);
+}
+
+.btn-kh-outline {
+  border: 1.5px solid var(--kh-line);
+  color: var(--kh-text);
+  font-weight: 700;
+  border-radius: 999px;
+  padding: .65rem 1.5rem;
+  background: transparent;
+  transition: border-color .15s ease, color .15s ease;
+}
+
+.btn-kh-outline:hover {
+  border-color: var(--kh-accent);
+  color: var(--kh-accent);
+}
+
+/* ---------- 5. Hero ---------- */
+.hero {
+  position: relative;
+  padding: 90px 0 70px;
+  background:
+    radial-gradient(60% 70% at 15% 10%, rgba(124, 92, 255, .28), transparent 60%),
+    radial-gradient(50% 60% at 85% 20%, rgba(34, 211, 238, .22), transparent 60%),
+    var(--kh-bg);
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+.hero p.lead {
+  color: var(--kh-muted);
+  max-width: 34rem;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.hero-stats strong {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--kh-accent);
+}
+
+.hero-stats > div > span {
+  font-size: .85rem;
+  color: var(--kh-muted);
+}
+
+.hero-stats strong span {
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ---------- 6. Carousel ---------- */
+.kh-carousel {
+  border-radius: var(--kh-radius);
+  overflow: hidden;
+  border: 1px solid var(--kh-line);
+  box-shadow: var(--kh-shadow);
+  background: var(--kh-bg-soft);
+}
+
+.kh-carousel .ratio img {
+  object-fit: contain;
+  background: #fff;
+  padding: 18px;
+}
+
+.kh-carousel .carousel-indicators {
+  top: 10px;
+  bottom: auto;
+  margin-bottom: 0;
+}
+
+.kh-carousel .carousel-caption {
+  background: linear-gradient(transparent, rgba(10, 11, 17, .92));
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2.2rem 1.2rem .9rem;
+  text-align: left;
+}
+
+.kh-carousel .carousel-caption h5 {
+  font-weight: 800;
+  font-size: 1rem;
+  margin-bottom: .15rem;
+}
+
+.kh-carousel .carousel-caption p {
+  color: var(--kh-muted);
+  font-size: .85rem;
+  margin: 0;
+}
+
+/* ---------- 7. Card สินค้า ---------- */
+.kh-card {
+  background: var(--kh-card);
+  color: var(--kh-text);          /* ทับสีตัวอักษรเริ่มต้นของ .card ใน Bootstrap */
+  border: 1px solid var(--kh-line);
+  border-radius: var(--kh-radius);
+  overflow: hidden;
+  height: 100%;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.kh-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--kh-primary);
+  box-shadow: var(--kh-shadow);
+}
+
+.kh-card .kh-thumb {
+  background: #fff;
+  padding: 10px;
+  margin: 10px 10px 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.kh-card .kh-thumb img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  transition: transform .25s ease;
+}
+
+.kh-card:hover .kh-thumb img {
+  transform: scale(1.05);
+}
+
+.kh-card .card-title {
+  font-size: .98rem;
+  font-weight: 700;
+  line-height: 1.35;
+  min-height: 2.7rem;
+}
+
+.kh-card .kh-brand {
+  font-size: .72rem;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--kh-accent);
+  font-weight: 700;
+}
+
+.kh-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* ปุ่มในการ์ดสินค้า: ไม่ให้ข้อความตัดบรรทัดเมื่อคอลัมน์แคบ */
+.kh-card .btn-kh {
+  white-space: nowrap;
+  padding: .45rem 1rem;
+  font-size: .82rem;
+}
+
+.kh-price small {
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--kh-muted);
+}
+
+/* ---------- 8. Badge ---------- */
+.kh-badge {
+  background: rgba(124, 92, 255, .16);
+  border: 1px solid rgba(124, 92, 255, .4);
+  color: #c9bcff;
+  font-weight: 600;
+  font-size: .7rem;
+  border-radius: 999px;
+  padding: .3rem .6rem;
+}
+
+.kh-badge-accent {
+  background: rgba(34, 211, 238, .14);
+  border-color: rgba(34, 211, 238, .4);
+  color: #9beaf7;
+}
+
+/* ---------- 9. กล่องฟีเจอร์ / ข้อมูล ---------- */
+.kh-feature {
+  background: var(--kh-bg-soft);
+  border: 1px solid var(--kh-line);
+  border-radius: var(--kh-radius);
+  padding: 26px;
+}
+
+/* ยืดเต็มความสูงคอลัมน์ เพื่อให้การ์ดในแถวเดียวกันสูงเท่ากัน
+   ใช้เฉพาะกรณีที่การ์ดอยู่ลำพังในคอลัมน์ ถ้ามีหลายใบวางซ้อนกัน
+   (เช่นหน้า Contact) จะปล่อยให้สูงตามเนื้อหา ไม่อย่างนั้นใบล่างจะล้นทับส่วนถัดไป */
+.kh-feature:only-child {
+  height: 100%;
+}
+
+.kh-feature .kh-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  background: linear-gradient(100deg, rgba(124, 92, 255, .25), rgba(34, 211, 238, .25));
+  border: 1px solid var(--kh-line);
+  margin-bottom: 14px;
+}
+
+/* ---------- 10. แถบตัวกรองสินค้า ---------- */
+.kh-filter {
+  background: var(--kh-bg-soft);
+  border: 1px solid var(--kh-line);
+  border-radius: var(--kh-radius);
+  padding: 18px;
+}
+
+.form-control,
+.form-select {
+  background: var(--kh-card);
+  border: 1px solid var(--kh-line);
+  color: var(--kh-text);
+  border-radius: 12px;
+  padding: .6rem .85rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background: var(--kh-card);
+  color: var(--kh-text);
+  border-color: var(--kh-primary);
+  box-shadow: 0 0 0 .2rem rgba(124, 92, 255, .22);
+}
+
+.form-control::placeholder {
+  color: #6b7191;
+}
+
+.form-label {
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--kh-text);
+  margin-bottom: .35rem;
+}
+
+/* ---------- 11. Modal / Accordion / Table / Breadcrumb ---------- */
+.modal-content {
+  background: var(--kh-card);
+  border: 1px solid var(--kh-line);
+  border-radius: var(--kh-radius);
+  color: var(--kh-text);
+}
+
+.modal-header,
+.modal-footer {
+  border-color: var(--kh-line);
+}
+
+.modal .kh-modal-img {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.accordion-item {
+  background: var(--kh-bg-soft);
+  border: 1px solid var(--kh-line);
+  border-radius: 12px !important;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.accordion-button {
+  background: var(--kh-bg-soft);
+  color: var(--kh-text);
+  font-weight: 700;
+}
+
+.accordion-button:not(.collapsed) {
+  background: rgba(124, 92, 255, .16);
+  color: #fff;
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 .2rem rgba(124, 92, 255, .22);
+}
+
+.accordion-body {
+  color: var(--kh-muted);
+}
+
+.table-kh {
+  /* Bootstrap ใส่สีตัวอักษรให้ทุกเซลล์ผ่านตัวแปร --bs-table-color
+     ถ้าตั้งแค่ color เฉย ๆ จะโดนทับจนเซลล์กลายเป็นสีดำบนพื้นเข้ม
+     จึงต้องกำหนดที่ตัวแปรของ Bootstrap โดยตรง */
+  --bs-table-color: var(--kh-text);
+  --bs-table-hover-color: var(--kh-text);
+  --bs-table-striped-color: var(--kh-text);
+  --bs-table-active-color: var(--kh-text);
+  --bs-table-border-color: var(--kh-line);
+  color: var(--kh-text);
+  border-color: var(--kh-line);
+}
+
+.table-kh thead th {
+  color: var(--kh-accent);
+  font-size: .82rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-color: var(--kh-line);
+}
+
+.table-kh td,
+.table-kh th {
+  border-color: var(--kh-line);
+  background: transparent;
+}
+
+.breadcrumb {
+  --bs-breadcrumb-divider-color: var(--kh-muted);
+  font-size: .88rem;
+}
+
+.breadcrumb a {
+  color: var(--kh-accent);
+}
+
+.breadcrumb-item.active {
+  color: var(--kh-muted);
+}
+
+/* ---------- 12. Progress ---------- */
+.progress {
+  background: var(--kh-bg-soft);
+  border: 1px solid var(--kh-line);
+  height: 10px;
+  border-radius: 999px;
+}
+
+.progress-bar {
+  background: linear-gradient(100deg, var(--kh-primary), var(--kh-accent));
+}
+
+/* ---------- 13. Alert ---------- */
+.alert-kh {
+  background: rgba(34, 211, 238, .1);
+  border: 1px solid rgba(34, 211, 238, .35);
+  color: #bdeef7;
+  border-radius: 14px;
+}
+
+.alert-kh-warn {
+  background: rgba(255, 176, 32, .1);
+  border-color: rgba(255, 176, 32, .35);
+  color: #ffd489;
+}
+
+/* ---------- 14. CTA ---------- */
+.kh-cta {
+  background:
+    radial-gradient(60% 120% at 20% 0%, rgba(124, 92, 255, .35), transparent 60%),
+    radial-gradient(60% 120% at 80% 100%, rgba(34, 211, 238, .28), transparent 60%),
+    var(--kh-bg-soft);
+  border: 1px solid var(--kh-line);
+  border-radius: 24px;
+  padding: 46px 32px;
+}
+
+/* ---------- 15. Footer ---------- */
+.kh-footer {
+  background: var(--kh-bg-soft);
+  border-top: 1px solid var(--kh-line);
+  padding: 52px 0 24px;
+  color: var(--kh-muted);
+}
+
+.kh-footer h6 {
+  color: var(--kh-text);
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.kh-footer a {
+  color: var(--kh-muted);
+  display: inline-block;
+  padding: 3px 0;
+}
+
+.kh-footer a:hover {
+  color: var(--kh-accent);
+}
+
+.kh-footer-bottom {
+  border-top: 1px solid var(--kh-line);
+  margin-top: 30px;
+  padding-top: 18px;
+  font-size: .85rem;
+}
+
+/* ---------- 16. Responsive (Desktop / Tablet / Mobile) ---------- */
+@media (max-width: 991.98px) {
+  .section {
+    padding: 52px 0;
+  }
+
+  .hero {
+    padding: 62px 0 48px;
+    text-align: center;
+  }
+
+  .hero p.lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-stats {
+    justify-content: center;
+  }
+
+  .kh-navbar .nav-link.active {
+    background: rgba(124, 92, 255, .22);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .section {
+    padding: 40px 0;
+  }
+
+  .kh-cta {
+    padding: 30px 20px;
+  }
+
+  .hero-stats {
+    gap: 1.2rem;
+  }
+
+  .kh-card .card-title {
+    min-height: auto;
+  }
+}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="สินค้าคีย์บอร์ดทั้งหมดของ KeyHouse กว่า 50 รุ่น ค้นหาและกรองตามแบรนด์ ชนิดสวิตช์ และการเชื่อมต่อ">
+  <title>สินค้าทั้งหมด | KeyHouse</title>
+
+  <!-- Bootstrap 5 (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- CSS ที่เขียนเอง -->
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="icon" href="images/logo.svg">
+</head>
+<body>
+
+  <!-- ============ Navbar : เนื้อหาถูกโหลดจาก menu.html ด้วย js/menu.js ============ -->
+  <nav class="navbar navbar-expand-lg sticky-top kh-navbar" id="menu"></nav>
+
+  <main>
+
+    <!-- ============ Breadcrumb ============ -->
+    <div class="container pt-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html" data-page="index.html">หน้าแรก</a></li>
+          <li class="breadcrumb-item active" aria-current="page">สินค้าทั้งหมด</li>
+        </ol>
+      </nav>
+    </div>
+
+    <!-- ============ หัวข้อหน้า ============ -->
+    <section class="section-sm pb-0">
+      <div class="container">
+        <div class="eyebrow mb-2">สินค้าของเรา</div>
+        <h1 class="section-title">คีย์บอร์ดทั้งหมด <span>50 รุ่น</span></h1>
+        <p class="text-muted-kh mt-3 mb-4" style="max-width:48rem">
+          เลือกดูคีย์บอร์ดจากทุกแบรนด์ในร้าน ใช้ช่องค้นหาและตัวกรองด้านล่างเพื่อหารุ่นที่ตรงกับการใช้งานของคุณ
+          กดปุ่ม "ดูรายละเอียด" เพื่อดูสเปกแบบเต็มของแต่ละรุ่น
+        </p>
+
+        <!-- Alert แนะนำการใช้งาน -->
+        <div class="alert alert-kh alert-kh-warn d-flex align-items-center gap-3" role="alert">
+          <i class="bi bi-info-circle-fill fs-5"></i>
+          <div class="small mb-0">
+            ราคาที่แสดงเป็นราคาสินค้าปกติ ยังไม่รวมส่วนลดหน้าร้าน — สอบถามราคาพิเศษได้ที่หน้า
+            <a href="contact.html" data-page="contact.html" class="fw-bold text-decoration-underline">ติดต่อเรา</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Component : Form (ค้นหา + ตัวกรอง) ============ -->
+    <section class="section-sm pb-0">
+      <div class="container">
+        <form class="kh-filter" onsubmit="return false;">
+          <div class="row g-3 align-items-end">
+            <div class="col-12 col-lg-4">
+              <label class="form-label" for="fSearch">ค้นหาสินค้า</label>
+              <div class="input-group">
+                <span class="input-group-text bg-transparent border-end-0"
+                      style="border-color:var(--kh-line);color:var(--kh-muted)">
+                  <i class="bi bi-search"></i>
+                </span>
+                <input type="search" class="form-control border-start-0" id="fSearch"
+                       placeholder="เช่น Keychron, magnetic, 75%">
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2">
+              <label class="form-label" for="fBrand">แบรนด์</label>
+              <select class="form-select" id="fBrand">
+                <option value="">ทุกแบรนด์</option>
+              </select>
+            </div>
+
+            <div class="col-6 col-lg-2">
+              <label class="form-label" for="fSwitch">ชนิดสวิตช์</label>
+              <select class="form-select" id="fSwitch">
+                <option value="">ทุกชนิด</option>
+              </select>
+            </div>
+
+            <div class="col-6 col-lg-2">
+              <label class="form-label" for="fConn">การเชื่อมต่อ</label>
+              <select class="form-select" id="fConn">
+                <option value="">ทั้งหมด</option>
+                <option value="wireless">ไร้สาย</option>
+                <option value="wired">มีสาย</option>
+              </select>
+            </div>
+
+            <div class="col-6 col-lg-2">
+              <label class="form-label" for="fSort">เรียงตาม</label>
+              <select class="form-select" id="fSort">
+                <option value="name">ชื่อ A → Z</option>
+                <option value="price-asc">ราคาต่ำ → สูง</option>
+                <option value="price-desc">ราคาสูง → ต่ำ</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mt-3">
+            <span class="small text-muted-kh">
+              พบสินค้า <strong class="text-white" id="resultCount">0</strong> รายการ
+            </span>
+            <button type="button" class="btn btn-kh-outline btn-sm" id="resetFilter">
+              <i class="bi bi-arrow-counterclockwise"></i> ล้างตัวกรอง
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ รายการสินค้า (Card แสดงเป็นคอลัมน์) ============ -->
+    <section class="section">
+      <div class="container">
+        <!-- การ์ดสินค้าทั้งหมดถูกสร้างด้วย JavaScript จาก js/products.js -->
+        <div class="row g-4" id="productGrid"></div>
+
+        <!-- แจ้งเตือนเมื่อไม่พบสินค้า -->
+        <div class="alert alert-kh text-center d-none" id="emptyState" role="alert">
+          <i class="bi bi-emoji-frown fs-4 d-block mb-2"></i>
+          ไม่พบสินค้าที่ตรงกับเงื่อนไข ลองเปลี่ยนคำค้นหาหรือกดปุ่ม "ล้างตัวกรอง"
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ Footer : เนื้อหาถูกโหลดจาก footer.html ด้วย js/menu.js ============ -->
+  <footer class="kh-footer" id="footer"></footer>
+
+  <!-- ============ Modal (รายละเอียดสินค้า) ============ -->
+  <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true" aria-labelledby="productModalLabel">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productModalLabel" data-modal-title>รายละเอียดสินค้า</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="ปิด"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-4">
+            <div class="col-md-5">
+              <div class="kh-modal-img">
+                <img data-modal-img src="" alt="" class="img-fluid">
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="kh-brand mb-1" data-modal-brand></div>
+              <div class="kh-price mb-2" data-modal-price></div>
+              <div class="d-flex flex-wrap gap-1 mb-3" data-modal-badges></div>
+              <p class="text-muted-kh small" data-modal-desc></p>
+              <table class="table table-sm table-kh mb-0">
+                <tbody data-modal-specs></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-kh-outline btn-sm" data-bs-dismiss="modal">ปิด</button>
+          <a class="btn btn-kh btn-sm" href="contact.html" data-page="contact.html">สอบถาม / สั่งซื้อ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>

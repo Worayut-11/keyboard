@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 44" width="64" height="44" role="img" aria-label="KeyHouse logo">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c5cff"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="7" width="62" height="36" rx="7" fill="url(#g)"/>
+  <rect x="1" y="3" width="62" height="36" rx="7" fill="#12131a" stroke="url(#g)" stroke-width="2"/>
+  <g fill="url(#g)">
+    <rect x="8"  y="10" width="7" height="7" rx="2"/>
+    <rect x="18" y="10" width="7" height="7" rx="2"/>
+    <rect x="28" y="10" width="7" height="7" rx="2"/>
+    <rect x="38" y="10" width="7" height="7" rx="2"/>
+    <rect x="48" y="10" width="8" height="7" rx="2"/>
+    <rect x="8"  y="21" width="7" height="7" rx="2"/>
+    <rect x="18" y="21" width="7" height="7" rx="2"/>
+    <rect x="28" y="21" width="28" height="7" rx="2" opacity=".55"/>
+  </g>
+</svg>

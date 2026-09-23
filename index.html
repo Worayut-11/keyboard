@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="KeyHouse ร้านคีย์บอร์ดออนไลน์ รวมคีย์บอร์ดเกมมิ่งและคีย์บอร์ดแมคคานิคอลกว่า 50 รุ่นจากแบรนด์ชั้นนำ">
+  <title>KeyHouse | ร้านคีย์บอร์ดออนไลน์</title>
+
+  <!-- Bootstrap 5 (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- CSS  -->
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="icon" href="images/logo.svg">
+</head>
+<body>
+
+  <!-- ============ Navbar : เนื้อหาถูกโหลดจาก menu.html ด้วย js/menu.js ============ -->
+  <nav class="navbar navbar-expand-lg sticky-top kh-navbar" id="menu"></nav>
+
+  <main>
+
+    <!-- ============ Hero Section (+ Component 3 : Carousel) ============ -->
+    <section class="hero">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <div class="eyebrow mb-2">ร้านคีย์บอร์ดออนไลน์</div>
+            <h1 class="section-title">เลือกคีย์บอร์ดที่ <span>ใช่สำหรับคุณ</span> ได้ในที่เดียว</h1>
+            <p class="lead mt-3">
+              รวมคีย์บอร์ดเกมมิ่งและคีย์บอร์ดแมคคานิคอลกว่า 50 รุ่น ทั้ง Magnetic Switch,
+              Hot-swappable และรุ่นไร้สาย Tri-Mode พร้อมสเปกครบทุกรุ่นให้เปรียบเทียบก่อนตัดสินใจ
+            </p>
+
+            <!-- Call to Action -->
+            <div class="d-flex flex-wrap gap-2 mt-4">
+              <a class="btn btn-kh" href="services.html" data-page="services.html">
+                <i class="bi bi-keyboard"></i> ดูสินค้าทั้งหมด
+              </a>
+              <a class="btn btn-kh-outline" href="about.html" data-page="about.html">
+                รู้จักร้านของเรา
+              </a>
+            </div>
+
+            <div class="hero-stats">
+              <div><strong data-stat-count>50+</strong><span>รุ่นที่พร้อมจำหน่าย</span></div>
+              <div><strong data-stat-brand>27</strong><span>แบรนด์ชั้นนำ</span></div>
+              <div><strong>เริ่ม <span data-stat-min>760</span>฿</strong><span>ราคาเริ่มต้น</span></div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div id="heroCarousel" class="carousel slide kh-carousel" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-label="ภาพที่ 1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="ภาพที่ 2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="ภาพที่ 3"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="ภาพที่ 4"></button>
+              </div>
+              <!-- ภาพสไลด์ถูกสร้างจาก js/products.js -->
+              <div class="carousel-inner" id="heroCarouselInner"></div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">ก่อนหน้า</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">ถัดไป</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Component 4 : Alert (ประกาศโปรโมชัน) ============ -->
+    <div class="container">
+      <div class="alert alert-kh d-flex align-items-center gap-3 mb-0" role="alert">
+        <i class="bi bi-megaphone-fill fs-4"></i>
+        <div>
+          <strong>โปรโมชันเดือนนี้</strong> — สั่งซื้อครบ 2,000 บาท ส่งฟรีทั่วไทย
+          พร้อมแถมที่ถอดคีย์แคปและสวิตช์ทุกออเดอร์
+        </div>
+        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="alert" aria-label="ปิด"></button>
+      </div>
+    </div>
+
+    <!-- ============ ข้อความแนะนำเว็บไซต์ + Component 5 : Card ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="row g-4 mb-5">
+          <div class="col-lg-7">
+            <div class="eyebrow mb-2">แนะนำเว็บไซต์</div>
+            <h2 class="section-title">ทำไมต้องซื้อคีย์บอร์ดกับ <span>KeyHouse</span></h2>
+            <p class="text-muted-kh mt-3 mb-0">
+              KeyHouse คือร้านคีย์บอร์ดออนไลน์ที่คัดเฉพาะรุ่นที่ใช้งานจริงได้ดี
+              เราแสดงข้อมูลสเปกครบทุกรุ่น ทั้งชนิดสวิตช์ ขนาดคีย์บอร์ด รูปแบบการเชื่อมต่อ
+              และคีย์แคปภาษาไทย เพื่อให้คุณเปรียบเทียบได้ง่ายก่อนตัดสินใจ
+              ไม่ว่าคุณจะเป็นเกมเมอร์สายแข่ง นักเขียนโปรแกรม หรือมือใหม่ที่เพิ่งเริ่มจัดโต๊ะ
+            </p>
+          </div>
+          <div class="col-lg-5 d-flex align-items-end justify-content-lg-end">
+            <a class="btn btn-kh-outline" href="services.html" data-page="services.html">
+              เปรียบเทียบสินค้าทั้งหมด <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card แสดงข้อมูลสำคัญ 3 ใบ -->
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="kh-feature">
+              <div class="kh-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+              <h3 class="h5 fw-bold">สเปกครบ เทียบง่าย</h3>
+              <p class="text-muted-kh mb-0">
+                ทุกรุ่นระบุชนิดสวิตช์ ขนาด การเชื่อมต่อ และคุณสมบัติเด่น
+                พร้อมตัวกรองให้เลือกดูเฉพาะแบบที่ต้องการ
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="kh-feature">
+              <div class="kh-icon"><i class="bi bi-shield-check"></i></div>
+              <h3 class="h5 fw-bold">ของแท้ มีประกันศูนย์</h3>
+              <p class="text-muted-kh mb-0">
+                สินค้านำเข้าและจัดจำหน่ายอย่างถูกต้อง รับประกันตามเงื่อนไขผู้ผลิต
+                เคลมง่ายผ่านหน้าร้านและออนไลน์
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="kh-feature">
+              <div class="kh-icon"><i class="bi bi-truck"></i></div>
+              <h3 class="h5 fw-bold">ส่งไว เก็บปลายทางได้</h3>
+              <p class="text-muted-kh mb-0">
+                สั่งก่อน 15.00 น. จัดส่งภายในวันเดียวกัน
+                พร้อมบริการเก็บเงินปลายทางทั่วประเทศ
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ สินค้าแนะนำ (Card จากข้อมูลจริง) ============ -->
+    <section class="section-sm">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-end justify-content-between gap-2 mb-4">
+          <div>
+            <div class="eyebrow mb-2">สินค้าแนะนำ</div>
+            <h2 class="section-title">รุ่น <span>เรือธง</span> จากแต่ละแบรนด์</h2>
+          </div>
+          <a class="btn btn-kh-outline btn-sm" href="services.html" data-page="services.html">ดูทั้งหมด</a>
+        </div>
+
+        <!-- การ์ดสินค้าถูกสร้างด้วย JavaScript จาก js/products.js -->
+        <div class="row g-4" id="featuredGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ Call to Action ============ -->
+    <section class="section-sm">
+      <div class="container">
+        <div class="kh-cta text-center">
+          <h2 class="section-title mb-3">ยังเลือกไม่ถูกว่ารุ่นไหน <span>เหมาะกับคุณ</span>?</h2>
+          <p class="text-muted-kh mb-4">
+            บอกงบประมาณและลักษณะการใช้งาน แล้วทีมงานจะช่วยเลือกคีย์บอร์ดให้ภายใน 1 วันทำการ
+          </p>
+          <div class="d-flex flex-wrap justify-content-center gap-2">
+            <a class="btn btn-kh" href="contact.html" data-page="contact.html">
+              <i class="bi bi-chat-dots"></i> ปรึกษาทีมงานฟรี
+            </a>
+            <a class="btn btn-kh-outline" href="services.html" data-page="services.html">เลือกดูเองก่อน</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ Footer : เนื้อหาถูกโหลดจาก footer.html ด้วย js/menu.js ============ -->
+  <footer class="kh-footer" id="footer"></footer>
+
+  <!-- ============ Component 6 : Modal (รายละเอียดสินค้า) ============ -->
+  <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true" aria-labelledby="productModalLabel">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productModalLabel" data-modal-title>รายละเอียดสินค้า</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="ปิด"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-4">
+            <div class="col-md-5">
+              <div class="kh-modal-img">
+                <img data-modal-img src="" alt="" class="img-fluid">
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="kh-brand mb-1" data-modal-brand></div>
+              <div class="kh-price mb-2" data-modal-price></div>
+              <div class="d-flex flex-wrap gap-1 mb-3" data-modal-badges></div>
+              <p class="text-muted-kh small" data-modal-desc></p>
+              <table class="table table-sm table-kh mb-0">
+                <tbody data-modal-specs></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-kh-outline btn-sm" data-bs-dismiss="modal">ปิด</button>
+          <a class="btn btn-kh btn-sm" href="contact.html" data-page="contact.html">สอบถาม / สั่งซื้อ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>
